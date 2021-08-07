@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.diao.dao.BookMapper">
+    <update id="updateBook" parameterType="Books">
+        update ssmbuild.books
+        <set>
+            <if test="bookName!=null and bookName !=''"> bookName=#{bookName},</if>
+            <if test="bookCount!=null and bookCount!=''"> bookCount=#{bookCount},</if>
+            <if test="detail!=null and detail!=''"> detail=#{detail},</if>
+            <if test="cover!=null and cover!=''">cover=#{cover}</if>
+        </set>
+        <where>
+            bookID=#{bookID};
+        </where>
+    </update>
+
+</mapper>
